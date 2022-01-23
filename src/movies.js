@@ -61,20 +61,32 @@ function orderByYear(movies) {
   moviesCp.sort((a, b) => {
     if (a.year < b.year) return -1; // a is less than b
     if (a.year > b.year) return 1; // .year is greater than b
-    if (a.year === b.year){
-      moviesCp.sort((a,b) =>{
+    if (a.year == b.year){
+      
         if (a.title < b.title) return -1;
         if (a.title > b.title) return 1;
-        if (a.title === b.title) return 0
-      })
+        if (a.title == b.title) return 0
+      
     }  
   })
   return moviesCp
 }
-console.log(orderByYear(movies));
+
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically() {}
+function orderAlphabetically() {
+  let moviesCp = [...movies];
+  moviesCp.sort((a, b) => {
+    if (a.title < b.title) return -1; // a is less than b
+    if (a.title > b.title) return 1; // .title is greater than b
+    if (a.title == b.title) return 0;
+})
+const titles = moviesCp.map((movie)=>{
+  return movie.title
+})
+return titles
+}
+console.log(orderAlphabetically(movies));
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes() {}
